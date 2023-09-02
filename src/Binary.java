@@ -52,7 +52,7 @@ public class Binary {
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
                 Color color = new Color(binarizedImage.getRGB(col, row));
-                int intensity = color.getRed(); // Assumes grayscale image
+                int intensity = color.getRed(); 
 
                 if (intensity < threshold) {
                     binarizedImage.setRGB(col, row, Color.BLACK.getRGB());

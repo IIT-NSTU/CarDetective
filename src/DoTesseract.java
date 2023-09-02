@@ -12,7 +12,7 @@ public class DoTesseract {
     }
 
     public static void performTesseract(String inputImagePath) {
-        String outputTextFilePath = "src\\Output.txt"; // Set the output path here
+        String outputTextFilePath = "src\\Output.txt"; 
         String language = "ben";
 
         Tesseract tesseract = new Tesseract();

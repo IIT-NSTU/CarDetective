@@ -24,7 +24,7 @@ public class KMP {
 
     public static boolean kmpSearch(String text, String pattern) {
         int[] prefixArray = computePrefixArray(pattern);
-        int j = 0; // Index for pattern
+        int j = 0; 
 
         for (int i = 0; i < text.length(); i++) {
             while (j > 0 && text.charAt(i) != pattern.charAt(j)) {
@@ -33,11 +33,11 @@ public class KMP {
             if (text.charAt(i) == pattern.charAt(j)) {
                 j++;
                 if (j == pattern.length()) {
-                    return true; // Pattern found
+                    return true; 
                 }
             }
         }
-        return false; // Pattern not found
+        return false; 
     }
 
     public static void dataMatching(List<Pair> dataset, String outputContent) {
@@ -59,7 +59,6 @@ public class KMP {
         String datasetFile = "src\\dataset.txt";
         List<Pair> dataset = new ArrayList<>();
 
-        // Read data from the text file and create pairs
         try (BufferedReader reader = new BufferedReader(new FileReader(datasetFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -75,7 +74,6 @@ public class KMP {
             return;
         }
 
-        // Read the content of Output.txt
         String outputContent = "";
         String outputFilePath = "src\\Output.txt";
 
@@ -89,7 +87,6 @@ public class KMP {
             return;
         }
 
-        // Perform data matching and print the corresponding value if a match is found
         dataMatching(dataset, outputContent);
     }
 

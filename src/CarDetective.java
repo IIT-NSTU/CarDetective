@@ -35,6 +35,7 @@ public static void main(String[] args) {
            DoTesseract.performTesseract(ex);
            KMP.dataMatchingFromFiles();
         } else {
+        	
             System.out.println("Image not found.");
         }
     } catch (IOException e) {

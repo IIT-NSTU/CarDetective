@@ -24,7 +24,7 @@ public class Grayscale {
     public static String convertToGrayscale(String inputImagePath) {
         BufferedImage img = null;
         try {
-            // Read the converted JPG image
+         
             File inputFile = new File(inputImagePath);
             img = ImageIO.read(inputFile);
         } catch (IOException e) {
@@ -32,11 +32,9 @@ public class Grayscale {
             return null;
         }
 
-        // Get image width and height
         int width = img.getWidth();
         int height = img.getHeight();
 
-        // Convert to grayscale
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int p = img.getRGB(x, y);
@@ -46,20 +44,16 @@ public class Grayscale {
                 int g = (p >> 8) & 0xff;
                 int b = p & 0xff;
 
-                // Calculate average
                 int avg = (r + g + b) / 3;
 
-                // Replace RGB value with avg
                 p = (a << 24) | (avg << 16) | (avg << 8) | avg;
 
                 img.setRGB(x, y, p);
             }
         }
 
-        // Build the output image path
         String outputImagePath = inputImagePath.replaceFirst("[.][^.]+$", "") + "_Grayscale.jpg";
 
-        // Save the grayscale image
         try {
             File outputFile = new File(outputImagePath);
             ImageIO.write(img, "jpg", outputFile);
